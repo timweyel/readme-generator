@@ -1,6 +1,33 @@
 const inquirer = require('inquirer');
+const fs = require('fs');
+//const generateMarkdown = require('./utils/generateMarkdown');
 
+let answers = process.argv.slice(2, process.argv.length);
 
+const generateMarkdown = (userName, githubName) => {
+  return `
+  <!DOCTYPE html> 
+  <html lang="en"> 
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Portfolio Demo</title>
+  </head>
+
+  <body>
+    <h1>${userName}</h1>
+    <h2><a href="https://github.com/${githubName}">Github</a></h2>
+  </body>
+  </html>
+  `;
+};
+
+console.log(answers);
+
+const [userName, githubName] = answers;
+
+console.log(userName, githubName)
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -87,14 +114,28 @@ const questions = [
   }
 ];
 
-const promptUser = () => {
-inquirer.prompt(questions)
-  .then(function(data) {
+// const promptUser = () => {
+// inquirer.prompt(questions)
+//   .then(answers => {
 
-  });
-};
+//     generateMarkdown(answers);
 
-promptUser();
+//   });
+// };
+
+fs.writeFile('index.html', generateMarkdown(userName, githubName), err => {
+  if (err) throw err;
+
+  console.log('README complete! Check out index.html to see the output!');
+});
+
+// const appData = (answers) => {
+//   console.log(answers);
+// };
+
+// appData(answers);
+
+// promptUser();
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
