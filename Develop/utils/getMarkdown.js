@@ -14,19 +14,24 @@ function renderLicenseSection(license) {}
 
 module.exports.getMarkdown = (appData) => {
 return `
+![badge](https://img.shields.io/badge/license-${appData.license}-brightgreen)
+
 # ${appData.title}
 ${appData.description}
 
 ### Contents
-1. [Usage](#usage)
-2. [Installation](#installation)
-3. [Contributors & How to Contribute](#contribution)
-4. [Tests](#tests)
-5. [Licenses](#licenses)
+1. [Installation](#installation)
+2. [Usage](#usage)
+3. [License](#license)
+4. [Contribution](#contributing)
+5. [Tests](#tests)
 6. [Questions](#questions)
 
 ## Usage
 ${appData.usage}
+
+## License
+Covered by the ${appData.license} license.
 
 ## Installation
 ${appData.installation}
@@ -38,6 +43,9 @@ ${appData.contribution}
 ${appData.testing}
 
 ## Questions
+If you have any questions, please feel free to reach out to the contact below:
 Contact: 
+${appData.username}
+${appData.email}
 `  
 };
