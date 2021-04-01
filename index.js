@@ -106,7 +106,7 @@ function init() {
 
 function generateMarkdown(appData) {
 
-  fs.writeFile("README.md", template.getMarkdown(appData), err => {
+  fs.writeFile("./dist/README.md", template.getMarkdown(appData), err => {
     if (err) {
       return console.log(err);
     } else {
