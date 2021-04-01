@@ -1,12 +1,10 @@
+//global constants for dependencies
+
 const inquirer = require('inquirer');
-// console.log(inquirer);
 const fs = require('fs');
-//const { writeFile } = require('./utils/getMarkdown');
 const template = require('./utils/getMarkdown');
 
-
-
-// TODO: Create an array of questions for user input
+//array of questions to prompt user
 const questions = [
   {
     type: "input",
@@ -78,23 +76,22 @@ const questions = [
     message: "Select which license your application is covered by.",
     default: "MIT",
     choices: [
-      "Apache License 2.0",
-      "GNU General Public License v3.0",
-      "BSD 3-Clause 'New' or 'Revised' License", 
-      "BSD 2-Clause 'Simplified License'", 
-      "Boost Software License 1.0",
-      "Creative Common Zero v1.0 Universal", 
-      "Eclipse Public License 2.0",
-      "GNU Affero General Public License v3.0",
-      "GNU General Public License v2.0",
-      "GNU Lesser General Public License v2.1", 
-      "MIT License", 
-      "Mozilla Public License 2.0", 
-      "The Unlicense"
+      "Apache",
+      "GNU",
+      "BSD_3-Clause", 
+      "BSD_2-Clause", 
+      "Boost",
+      "Creative_Common_Zero", 
+      "Eclipse",
+      "GNU",
+      "MIT", 
+      "Mozilla", 
+      "Unlicense"
     ]
   }
 ];
 
+//function to init app
 function init() {
   inquirer
   .prompt(questions)
@@ -104,6 +101,7 @@ function init() {
   });
 };
 
+//function to pass data to getMarkdown so that README file can be written to
 function generateMarkdown(appData) {
 
   fs.writeFile("./dist/README.md", template.getMarkdown(appData), err => {

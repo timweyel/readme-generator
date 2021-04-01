@@ -22,5 +22,6 @@
   "homepage": "https://github.com/timweyel/readme-generator#readme",
   "dependencies": {
     "inquirer": "^8.0.0"
-  }
+  },
+  "devDependencies": {}
 }
