@@ -1,8 +1,10 @@
 //global constants for dependencies
 
+
 const inquirer = require('inquirer');
 const fs = require('fs');
 const template = require('./utils/getMarkdown');
+const { makeBadge, ValidationError } = require('badge-maker');
 
 //array of questions to prompt user
 const questions = [
@@ -90,6 +92,8 @@ const questions = [
     ]
   }
 ];
+
+
 
 //function to init app
 function init() {
