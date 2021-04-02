@@ -23,3 +23,4 @@ SO THAT can quickly create a professional README for a new project
 - If a link is clicked on in the Table of Contents, then the user is taken to the corresponding section of the README.md file.
 
 ## Walkthrough Video
+https://drive.google.com/file/d/1g_FVSJVfaSYVwErY5jwM44aFBYkfdtjz/view
