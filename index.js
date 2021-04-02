@@ -4,7 +4,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const template = require('./utils/getMarkdown');
-const { makeBadge, ValidationError } = require('badge-maker');
 
 //array of questions to prompt user
 const questions = [
@@ -73,22 +72,19 @@ const questions = [
     message: "Please provide testing instructions."
   },
   {
-    type: "checkbox",
+    type: "list",
     name: "license",
     message: "Select which license your application is covered by.",
     default: "MIT",
     choices: [
       "Apache",
       "GNU",
-      "BSD_3-Clause", 
-      "BSD_2-Clause", 
       "Boost",
       "Creative_Common_Zero", 
       "Eclipse",
       "GNU",
       "MIT", 
       "Mozilla", 
-      "Unlicense"
     ]
   }
 ];
